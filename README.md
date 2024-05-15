@@ -54,8 +54,8 @@
 ![Main Screen](./git-images/git-main.png)
 
 ### 🔍 디테일 화면
-![Main Screen](./git-images/git-detail.png)
-![Main Screen](./git-images/git-board.png)
+![Detail Screen](./git-images/git-detail.png)
+![Board Screen](./git-images/git-board.png)
 
 
 ## 🛠 개발과정 흐름
