@@ -51,10 +51,11 @@
 ## 📸 스크린샷
 
 ### 🌐 메인 화면
-![Main Screen](./public/images/git-main.png)
+![Main Screen](./git-images/git-main.png)
 
 ### 🔍 디테일 화면
-![Weather Modal](./public/images/git-detail.png)
+![Main Screen](./git-images/git-detail.png)
+![Main Screen](./git-images/git-board.png)
 
 
 ## 🛠 개발과정 흐름
