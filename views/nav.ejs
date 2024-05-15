@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <div class="container-fluid">
+        <img src="/img/logo.png" width="3%">
+        <a class="navbar-brand" href="/">Bid Kong</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/board">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/myPage">MyPage</a>
+                </li>
+                <div class="sign-button-container" id="user-status">
+                    <% if (user) { %>
+                        <p class="m-2">안녕하세요😊, <%= user.username %>님</p>
+                    <% } else { %>
+                        <button class="btn btn-outline-dark" onclick="location.href='/login'">Sign In</button>
+                        <button class="btn btn-outline-dark" onclick="location.href='/join'">Sign Up</button>
+                    <% } %>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+    // 페이지 로드 시 사용자 상태 업데이트
+    document.addEventListener('DOMContentLoaded', function() {
+        updateUserStatus();
+    });
+    
+    // 사용자 상태 업데이트 함수
+    function updateUserStatus() {
+      fetch('/get-user-status')
+        .then(response => response.json())
+        .then(data => {
+          const userStatusContainer = document.getElementById('user-status');
+          if (data.loggedIn) {
+            userStatusContainer.innerHTML = `<p class="m-2">안녕하세요😊, ${data.username}님</p>`;
+          } else {
+            userStatusContainer.innerHTML = `
+              <button class="btn btn-outline-dark" onclick="location.href='/login'">Sign In</button>
+              <button class="btn btn-outline-dark" onclick="location.href='/join'">Sign Up</button>
+            `;
+          }
+        });
+    }
+    </script>

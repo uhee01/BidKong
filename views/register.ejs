@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link href="/main.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <%- include('nav.ejs') %>
+
+        <div class="container register-container mt-5">
+            <h2 class="fw-bold">상품 경매 등록</h2>
+            <p>경매 상품 등록을 위해 상품의 세부 정보를 입력하세요.</p>
+            <form class="register-form" action="/register" method="POST" enctype="multipart/form-data">
+                <div class="form-subtitle">
+                    <h4 class="fw-bold">상품 정보</h4>
+                    <p>경매에 부치고자 하는 상품의 정보를 제공하세요.</p>
+                </div>
+                <div class="row text-center">
+                    <div class="col">
+                        <div class="preview" id="preview">
+                            <img src="/img/preview.png" alt="미리보기 이미지">
+                        </div>
+                        <input type="file" id="imgInput" name="img1" accept="image/*" multiple>
+                    </div>
+                    <div class="col">
+                        <p>상품명</p>
+                        <input name="productName" class="form-control-custom">
+                        <p>설명</p>
+                        <textarea name="description" class="form-control-custom" rows="4"></textarea>
+                        <p>카테고리</p>
+                        <select name="category" class="form-control-custom">
+                            <% categories.forEach(function(category) { %>
+                                <option value="<%= category %>">
+                                    <%= category %>
+                                </option>
+                                <% }); %>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-subtitle">
+                    <h4 class="fw-bold">경매 세부 사항</h4>
+                    <p>경매 세부 사항을 설정하세요.</p>
+                </div>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col">
+                            <p>기간</p>
+                            <input name="durationDate" type="date">
+                            <input name="durationTime" type="time">
+                        </div>
+                        <div class="col">
+                            <p>시작 가격</p>
+                            <input name="startPrice" class="form-control-custom">
+                            <p>최소 입찰 증가액</p>
+                            <input name="minimumBid" class="form-control-custom">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center m-5">
+                    <button type="submit" class="form-submit-btn">제출</button>
+                </div>
+            </form>
+        </div>
+
+
+        <script>
+            // 이미지 미리보기 기능
+            $(document).ready(function () {
+                $('#imgInput').change(function (event) {
+                    var preview = $('#preview');
+                    preview.empty(); // 내용 비우기
+                    Array.from(event.target.files).forEach(function (file) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            var img = $('<img>').attr('src', e.target.result);
+                            preview.append(img);
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                });
+
+            });
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</body>
+
+</html>
