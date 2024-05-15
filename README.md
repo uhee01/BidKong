@@ -11,6 +11,8 @@
 ![Passport](https://img.shields.io/badge/Passport-34E27A?style=for-the-badge&logo=passport&logoColor=white)
 ![Multer](https://img.shields.io/badge/Multer-FF7F50?style=for-the-badge&logo=multipass&logoColor=white)
 
+<br>
+
 ## 🎉 프로젝트 개요
 
 ### 🎯 목표
@@ -23,6 +25,8 @@
 - **인증 및 권한 관리**: Passport.js, bcrypt
 - **파일 업로드**: Multer, AWS S3
 - **기타**: Session 관리, S3Client, Express-session
+
+<br>
 
 ## 🌟 주요 기능
 
@@ -48,6 +52,8 @@
 - **내 상품 관리**: 사용자가 등록한 상품, 입찰한 상품, 낙찰된 상품 관리 기능
 - **내 포인트 확인**: 현재 사용자 포인트 확인 기능
 
+<br>
+
 ## 📸 스크린샷
 
 ### 🌐 메인 화면
@@ -57,6 +63,7 @@
 ![Detail Screen](./git-images/git-detail.png)
 ![Board Screen](./git-images/git-board.png)
 
+<br>
 
 ## 🛠 개발과정 흐름
 
@@ -92,6 +99,8 @@
 
 8. **테스트**:
    - 기능 테스트 및 디버깅
+
+<br>
 
 ## ⚠️ 어려웠던 부분과 해결 과정
 
